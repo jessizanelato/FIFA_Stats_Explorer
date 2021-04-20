@@ -21,7 +21,7 @@ class UI_rdr{
         dl.innerHTML = '';
         players.forEach((player) => {
             dl.innerHTML += 
-                `<option value="${player.id}">${player.type} ${player.name} (${player.rating})</option>`
+                `<option value="${player.id}">${player.name} (${player.overall})</option>`
         });
     }
 
@@ -84,7 +84,7 @@ class UI_rdr{
         if(player1 != null){
             datasets.push({
                 data: p1,
-                label: `${player1.info.type} ${player1.info.knownas}`,
+                label: `${player1.info.full_name}`,
                 backgroundColor: ('rgba(255, 182, 0, 0.3)'),
                 borderColor: ('rgba(255, 182, 0, 0.7)'),
                 borderWidth: 2
@@ -93,7 +93,7 @@ class UI_rdr{
         if(player2 != null){
             datasets.push({
                 data: p2,
-                label: `${player2.info.type} ${player2.info.knownas}`,
+                label: `${player2.info.full_name}`,
                 backgroundColor: ('rgba(33, 249, 0, 0.3)'),
                 borderColor: ('rgba(33, 249, 0, 0.7)'),
                 borderWidth: 2
@@ -102,7 +102,7 @@ class UI_rdr{
         if(player3 != null){
             datasets.push({
                 data: p3,
-                label: `${player3.info.type} ${player3.info.knownas}`,
+                label: `${player3.info.full_name}`,
                 backgroundColor: ('rgba(5, 138, 255, 0.3)'),
                 borderColor: ('rgba(5, 138, 255, 0.7)'),
                 borderWidth: 2

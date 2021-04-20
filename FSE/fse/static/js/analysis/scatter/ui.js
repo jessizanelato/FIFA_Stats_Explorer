@@ -29,7 +29,7 @@ class UI_sctr{
         this.dlPlayers_sctr.innerHTML = "";
         players.forEach((player) => {
             this.dlPlayers_sctr.innerHTML += 
-                `<option value="${player.id}">${player.type} ${player.name} (${player.rating})</option>`
+                `<option value="${player.id}">${player.name} (${player.overall})</option>`
         });
     }
 
@@ -50,7 +50,7 @@ class UI_sctr{
         if (players){
             players.forEach((player) => {
                 this.players_sctr.innerHTML +=
-                    `<li class="list-group-item">${player.info.type} ${player.info.knownas} (${player.info.rating})</li>`
+                    `<li class="list-group-item">${player.info.full_name} (${player.info.overall})</li>`
             });   
         }
     }
@@ -68,7 +68,7 @@ class UI_sctr{
 
         if(players){
             players.forEach((player) => {
-                labels.push(`${player.info.type} ${player.info.knownas}`);
+                labels.push(`${player.info.full_name}`);
 
                 let statpair = {};
                 if(this.summary_stats.indexOf(xstat) > -1){

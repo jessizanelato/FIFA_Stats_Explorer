@@ -23,7 +23,7 @@ class UI_bar{
         this.dlPlayers_bar.innerHTML = "";
         players.forEach((player) => {
             this.dlPlayers_bar.innerHTML += 
-                `<option value="${player.id}">${player.type} ${player.name} (${player.rating})</option>`
+                `<option value="${player.id}">${player.name} (${player.overall})</option>`
         });
     }
 
@@ -44,7 +44,7 @@ class UI_bar{
         if (players){
             players.forEach((player) => {
                 this.players_bar.innerHTML +=
-                    `<li class="list-group-item">${player.info.type} ${player.info.knownas} (${player.info.rating})</li>`
+                    `<li class="list-group-item">${player.info.full_name} (${player.info.overall})</li>`
             });   
         }
     }
@@ -70,7 +70,7 @@ class UI_bar{
         // For each player add a label to the list of labels and add statistic of concern to the list of stats
         if (players){
             players.forEach((player) => {
-                labels.push(`${player.info.type} ${player.info.knownas}`);
+                labels.push(`${player.info.full_name}`);
                 if(this.summary_stats.indexOf(stat) > -1){
                     stats.push(player.stats_summary[stat]);
                 }else{

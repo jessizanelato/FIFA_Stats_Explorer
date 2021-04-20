@@ -14,21 +14,17 @@ def scrape_player(url):
 
     profile_p1 = soup.find('div', {'class': 'playerprofile-hbar-ttl'})
     player['info']['full_name'] = profile_p1.h1.text
-    info = profile_p1.div.text.split(' | ')
-    player['info']['type'] = info[0]
-    player['info']['country'] = info[1]
-    player['info']['club'] = info[2]
-    player['info']['league'] = info[3]
+    info = profile_p1.div.text.split(' | ')    
+    player['info']['country'] = info[0]
+    player['info']['club'] = info[1]
+    player['info']['league'] = info[2]
     
-    player['info']['knownas'] = soup.find('div', {'class': 'card-21-name'}).text
-    player['info']['rating'] = soup.find('div', {'class': 'card-21-rating'}).text
-    player['info']['position'] = soup.find('div', {'class': 'card-21-position'}).text
-
-    if player['info']['type'] == 'Non-Inform':
-        player['info']['card_name'] = player['info']['knownas']
-    else:
-        player['info']['card_name'] = f"{player['info']['type']} {player['info']['knownas']}"
-
+    player['info']['overall'] = soup.find('div', {'class': 'cplayerprofile-ovr'}).find('p', {'class': 'cprofstat'}).text
+    player['info']['potential'] = soup.find('div', {'class': 'cplayerprofile-pot'}).find('p', {'class': 'cprofstat'}).text
+    player['info']['position'] = soup.find('div', {'class': 'cprofile-infobarmargin'}).text
+    player['info']['age'] = soup.find('div', {'class': 'playerprofile-db'}).find('p', {'class': 'ppdb-d'}).text
+    player['info']['value'] = soup.find('div', {'class': 'career-value'}).text
+    player['info']['wage'] = soup.findAll('div', {'class': 'wagevalue'})[4].text
 
     stats = soup.find('div', {'class': 'playerprofile-stats-data'})
     player['stats_summary'] = {}

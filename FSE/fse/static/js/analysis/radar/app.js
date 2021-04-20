@@ -24,9 +24,9 @@ window.addEventListener('load', (e) => {
     let p1 = JSON.parse(sessionStorage.getItem('rdrChartPlayer1'));
     let p2 = JSON.parse(sessionStorage.getItem('rdrChartPlayer2'));
     let p3 = JSON.parse(sessionStorage.getItem('rdrChartPlayer3'));
-    player1_rdr.value = `${p1.info.type} ${p1.info.knownas}`;
-    player2_rdr.value = `${p2.info.type} ${p2.info.knownas}`;
-    player3_rdr.value = `${p3.info.type} ${p3.info.knownas}`;
+    player1_rdr.value = `${p1.info.full_name}`;
+    player2_rdr.value = `${p2.info.full_name}`;
+    player3_rdr.value = `${p3.info.full_name}`;
     ui_rdr.updateChart_rdr(stat_boxes);
 });
 
@@ -57,7 +57,7 @@ function playerChosen(e){
     const playerId = e.target.value;
     if(!isNaN(playerId)){
         requests_rdr.getPlayerById(playerId).then(data => {
-            e.target.value = `${data.info.type} ${data.info.knownas}`;
+            e.target.value = `${data.info.full_name}`;
             
             if(e.target.id == 'player-search1-rdr'){
                 sessionStorage.setItem(`rdrChartPlayer1`, JSON.stringify(data));

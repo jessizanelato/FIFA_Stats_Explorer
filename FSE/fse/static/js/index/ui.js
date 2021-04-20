@@ -31,12 +31,15 @@ class UI{
         players.forEach((player) => {
             this.playersTableBody.innerHTML += 
                 `<tr>
-                    <th scope="row">${player.name}</th>
-                    <td>${player.type}</td>
-                    <td>${player.rating}</td>
+                    <th scope="row">${player.name}</th>                    
                     <td>${player.position}</td>
                     <td>${player.club}</td>
                     <td>${player.country}</td>
+                    <td>${player.overall}</td>
+                    <td>${player.potential}</td>
+                    <td>${player.age}</td>
+                    <td>${player.value}</td>
+                    <td>${player.wage}</td>
                 </tr>`
         });
     }
